@@ -11,7 +11,7 @@ class habits extends Component {
   };
 
   handleIncrement = (habit) => {
-    console.log(`${habit.count}`);
+    // console.log(`${habit.count}`);
     // state를 직접적으로 사용하는 것 보단 스프레드 연산자 사용해서 하자
     const habits = [...this.state.habits];
     const index = habits.indexOf(habit);
