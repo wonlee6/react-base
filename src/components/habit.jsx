@@ -5,6 +5,13 @@ class Habit extends PureComponent {
   // state = {
   //   count: 0,
   // };
+  componentDidMount() {
+    console.log(`habit: ${this.props.habit.name} mounted`);
+  }
+
+  componentWillUnmount() {
+    console.log(`habit: ${this.props.habit.name} Will unmounted `);
+  }
   handleIncrement = () => {
     // state Obejct 안에 있는 count를 증가 한뒤 state를 업데이트해야됨
     // setState 사용해야지 렌더링 됨

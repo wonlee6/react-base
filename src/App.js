@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./app.css";
 import Habits from "./components/habits";
 import Navbar from "./components/navbar";
 
+// pureComponent
+// 업데이트 전과 후 props, state를 비교한다
+// shouldComponentUpdate를 가지고 있따
+// 비교후 동일하면 render 함수가 실행되지 않는다
 class App extends Component {
   state = {
     habits: [
