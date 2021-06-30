@@ -14,16 +14,29 @@ class App extends Component {
   handleIncrement = (habit) => {
     // console.log(`${habit.count}`);
     // state를 직접적으로 사용하는 것 보단 스프레드 연산자 사용해서 하자
-    const habits = [...this.state.habits];
-    const index = habits.indexOf(habit);
-    habits[index].count++;
+    // const habits = [...this.state.habits];
+    // const index = habits.indexOf(habit);
+    // habits[index].count++;
+    const habits = this.state.habits.map((item) => {
+      // 새로운 오브젝트를 만들어 작업
+      if (item.id === habit.id) return { ...habit, count: habit.count + 1 };
+      return item;
+    });
     this.setState({ habits });
   };
   handleDecrement = (habit) => {
-    const habits = [...this.state.habits];
-    const index = habits.indexOf(habit);
-    const count = habits[index].count - 1;
-    habits[index].count = count < 0 ? 0 : count;
+    // const habits = [...this.state.habits];
+    // const index = habits.indexOf(habit);
+    // const count = habits[index].count - 1;
+    // habits[index].count = count < 0 ? 0 : count;
+    const habits = this.state.habits.map((item) => {
+      // 새로운 오브젝트를 만들어 작업
+      if (item.id === habit.id) {
+        const count = habit.count - 1;
+        return { ...habit, count: count < 0 ? 0 : count };
+      }
+      return item;
+    });
     this.setState({ habits });
   };
   handleDelete = (habit) => {
@@ -36,9 +49,13 @@ class App extends Component {
     this.setState({ habits });
   };
   hadleReset = () => {
-    const habits = this.state.habits.map((habit) => {
-      habit.count = 0;
-      return habit;
+    // const habits = this.state.habits.map((habit) => {
+    //   habit.count = 0;
+    //   return habit;
+    // });
+    const habits = this.state.habits.map((item) => {
+      if (item !== 0) return { ...item, count: 0 };
+      return item;
     });
     this.setState({ habits });
   };

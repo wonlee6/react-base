@@ -1,6 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class HabitAddForm extends Component {
+// pureComponent
+// 업데이트 전과 후 props, state를 비교한다
+// shouldComponentUpdate를 가지고 있따
+// 비교후 동일하면 render 함수가 실행되지 않는다
+class HabitAddForm extends PureComponent {
   formRef = React.createRef();
   inputRef = React.createRef();
   // DOM 요소에 접근하지 않고 createRef 통해 멤버 변수를 저장한 후

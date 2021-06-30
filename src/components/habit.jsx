@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class Habit extends Component {
+class Habit extends PureComponent {
   // state 초기값
   // state = {
   //   count: 0,
@@ -23,27 +23,28 @@ class Habit extends Component {
     // console.log(this.props.habit);
     // const habitName = this.props.habit.name;
     const { name, count } = this.props.habit;
+    // const { count } = this.props;
     return (
-      <li className="habit">
-        <span className="habit-name">{name}</span>
-        <span className="habit-count">{count}</span>
+      <li className='habit'>
+        <span className='habit-name'>{name}</span>
+        <span className='habit-count'>{count}</span>
         <button
-          className="habit-button habit-increase"
+          className='habit-button habit-increase'
           onClick={this.handleIncrement}
         >
-          <i className="fas fa-plus-square"></i>
+          <i className='fas fa-plus-square'></i>
         </button>
         <button
-          className="habit-button habit-decrease"
+          className='habit-button habit-decrease'
           onClick={this.handleDecrement}
         >
-          <i className="fas fa-minus-square"></i>
+          <i className='fas fa-minus-square'></i>
         </button>
         <button
-          className="habit-button habit-delete"
+          className='habit-button habit-delete'
           onClick={this.handleDelete}
         >
-          <i className="fas fa-trash"></i>
+          <i className='fas fa-trash'></i>
         </button>
       </li>
     );
